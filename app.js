@@ -1,9 +1,11 @@
 const express = require("express"),
       api     = require("auth0").ManagementClient,
+      cors    = require("cors"),
       app     = express(),
       port    = process.env.PORT;
 
 app.use(express.json());
+app.use(cors());
 
 const { users } = new api({
   domain: process.env.DOMAIN,
