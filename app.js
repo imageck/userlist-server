@@ -5,7 +5,10 @@ const express = require("express"),
       port    = process.env.PORT;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://userlist-one.vercel.app",
+  optionsSuccessStatus: 200
+}));
 
 const { users } = new api({
   domain: process.env.DOMAIN,
